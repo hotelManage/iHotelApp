@@ -1,4 +1,4 @@
-﻿angular.module('iHotel')
+﻿angular.module('iHotelApp')
     .controller('menusController', ['$scope', function ($scope) {
         $scope.homePage = function () {
         }

@@ -1,6 +1,6 @@
 ﻿
-angular.module('iHotel', ['ionic', 'ngIOS9UIWebViewPatch'])
-    .run(['$ionicPlatform', 'jpushSvr', 'popUpSvr', function ($ionicPlatform, jpushSvr, popUpSvr) {
+angular.module('iHotelApp', ['ionic', 'ngIOS9UIWebViewPatch'])
+    .run(['$ionicPlatform', function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
 
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -14,12 +14,12 @@ angular.module('iHotel', ['ionic', 'ngIOS9UIWebViewPatch'])
    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, $httpProvider, APP_CONFIG) {
 
        $stateProvider
-        /*登录*/
         .state('menus', {
             url: '/menus',
             templateUrl: 'app/menus/menus.html',
             controller: 'menusController'
         })
+       .state('menus.homePage-main', { views: { 'tab-homePage': { templateUrl: 'html/job/main.html', controller: 'ctrl-job-main' } }, url: '/job/main?time' })
        $urlRouterProvider.otherwise('/menus');
 
        /*修改put 和 post 的数据传递方式*/
