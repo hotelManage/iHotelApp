@@ -14,13 +14,16 @@ angular.module('iHotelApp', ['ionic', 'ngIOS9UIWebViewPatch'])
    .config(['$stateProvider', '$urlRouterProvider', '$httpProvider', 'APP_CONFIG', function ($stateProvider, $urlRouterProvider, $httpProvider, APP_CONFIG) {
 
        $stateProvider
-        .state('menus', {
-            url: '/menus',
-            templateUrl: 'app/menus/menus.html',
-            controller: 'menusController'
-        })
-       .state('menus.homePage-main', { views: { 'tab-homePage': { templateUrl: 'html/job/main.html', controller: 'ctrl-job-main' } }, url: '/job/main?time' })
-       $urlRouterProvider.otherwise('/menus');
+        .state('menus', { url: '/menus', templateUrl: 'app/menus/menus.html', controller: 'menusController' })
+
+        .state('menus.homePage', { url: '/homePage', views: { 'tab-homePage': { templateUrl: 'app/menus/homePage/homePage.html', controller: 'homePageController' } } })
+        .state('menus.hotel', { url: '/hotel', views: { 'tab-hotel': { templateUrl: 'app/menus/hotel/hotel.html', controller: 'hotelController' } } })
+        .state('menus.community', { url: '/community', views: { 'tab-community': { templateUrl: 'app/menus/community/community.html', controller: 'communityController' } } })
+        .state('menus.discovery', { url: '/discovery', views: { 'tab-discovery': { templateUrl: 'app/menus/discovery/discovery.html', controller: 'discoveryController' } } })
+        .state('menus.user', { url: '/user', views: { 'tab-user': { templateUrl: 'app/menus/user/user.html', controller: 'userController' } } })
+
+        .state('login', { url: '/login', templateUrl: 'app/login/login.html', controller: 'loginController' })
+       $urlRouterProvider.otherwise('/menus/homePage');
 
        /*修改put 和 post 的数据传递方式*/
        $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';

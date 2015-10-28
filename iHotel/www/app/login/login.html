@@ -1,0 +1,36 @@
+﻿<ion-view align-title="center" title="用户登录">
+    <ion-nav-bar align-title="center" class="bar-royal">
+        <ion-nav-buttons side="left">
+            <button class="button-clear icon ion-ios-arrow-back" ng-click="goBack()">返回</button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <div style="line-height:100%;border:1px solid rgb(238,238,238);border-radius:3px;text-align:center;width:100%;height:auto;background-color:rgb(255,255,255);">
+            <a href="#">
+                <img src="images/loginpage/regen/u4.jpg" height="100%" width="100%" style="vertical-align:central;" />
+            </a>
+        </div>
+        <ion-list>
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <i class="icon ion-telephone placeholder-icon"></i>
+                    <input type="tel" name="userName" placeholder="请输入手机号码" ng-model="user.mobile" required>
+                </label>
+            </div>
+
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <i class="icon ion-key placeholder-icon" ></i>
+                    <input type="tel" placeholder="请输入手机验证码" ng-model="user.psd" class="input-costume">
+                </label>
+                <button class="button  button-small" ng-disabled="verifyDisabled" ng-click="getValidateCode()">
+                    获取验证码
+                </button>
+            </div>
+        </ion-list>
+        <div class="spacer" style="height:20px;"></div>
+        
+        <button class="button   button-block button-small" style="width:90%;margin-left:5%;" ng-click="login()">登录</button>
+        <button class="button button-small" ng-click="register()" style="float:right;margin-right:5%;">新用户注册<i class="icon ion-ios-arrow-forward"></i></button>
+    </ion-content>
+</ion-view>
